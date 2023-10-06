@@ -1,0 +1,11 @@
+1. gsat1 - less fuel -> low orbit
+random info : https://planet4589.org/space/gcat/data/derived/launchlog.html
+2. insat4c - 55 sec, liquid stage fail for more info https://archive.ph/20120524115033/http://www.spaceref.com/news/viewpr.html?pid=20769
+3. insat4cr - high roll rate, but finally sab theek ho gaya, cz of satellite redundancy
+4. gsat4 - GSLV-D3 vehicle performance was normal up to the end of the second stage lasting 293 seconds.
+
+Read more at:
+https://economictimes.indiatimes.com/isro-to-analyse-cause-of-gslv-d3-rocket-failure/articleshow/5817937.cms?utm_source=contentofinterest&utm_medium=text&utm_campaign=cppst
+5. gslv f06 - shroud disintegrated - destroyed after loosing control over liquid fueled boosters(rocket failure after 45 sec says isro)
+6. gslv f10 -  third stage failed to ignite
+7. https://www.isro.gov.in/Gaganyaan_LEM.html
