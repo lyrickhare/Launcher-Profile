@@ -479,13 +479,13 @@ if __name__ == "__main__":
 	# # plot gslv-mk3 profiles	
 	# plot_profiles( vehicle_mission_name, filename_evt, filename_alt, filename_vel, filename_atm, apply_low_noise_filter_flag )
 
-	# GSLV-MK2-F08 Data
-	vehicle_mission_name = 'GSLV-MK2-F08-GSAT-6A'
-	filename_evt = './data/gslv-f08-gsat6a-flight-eventsMod.dat'
-	filename_alt = './data/gslv-f08-gsat6a-42-alt.dat'
-	filename_vel = './data/gslv-f08-gsat6a-42-vel.dat'	
-	# plot gslv-mk2 profiles	
-	plot_profiles( vehicle_mission_name, filename_evt, filename_alt, filename_vel, filename_atm, apply_low_noise_filter_flag )
+	# # GSLV-MK2-F08 Data
+	# vehicle_mission_name = 'GSLV-MK2-F08-GSAT-6A'
+	# filename_evt = './data/gslv-f08-gsat6a-flight-events.dat'
+	# filename_alt = './data/gslv-f08-gsat6a-42-alt.dat'
+	# filename_vel = './data/gslv-f08-gsat6a-42-vel.dat'	
+	# # plot gslv-mk2 profiles	
+	# plot_profiles( vehicle_mission_name, filename_evt, filename_alt, filename_vel, filename_atm, apply_low_noise_filter_flag )
 
 	# # PSLV-C26 Data
 	# vehicle_mission_name = 'PSLV-C26-IRNSS-1C'
@@ -494,3 +494,10 @@ if __name__ == "__main__":
 	# filename_vel = './data/pslv-c26-irnss-1c-11-vel.dat'
 	# # plot pslv profiles
 	# plot_profiles( vehicle_mission_name, filename_evt, filename_alt, filename_vel, filename_atm, apply_low_noise_filter_flag )
+	
+	vehicle_mission_name = 'GSLV-MK3-M4-C3'
+	filename_evt = './data/gslv-mk3-m4-c3-flight-eventsMod.dat'
+	filename_alt = './data/gslv-mk3-m4-c3-alt.dat'
+	filename_vel = './data/gslv-mk3-m4-c3-vel.dat'	
+	# plot gslv-mk2 profiles	
+	plot_profiles( vehicle_mission_name, filename_evt, filename_alt, filename_vel, filename_atm, apply_low_noise_filter_flag )
