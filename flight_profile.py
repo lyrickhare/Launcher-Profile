@@ -471,14 +471,15 @@ if __name__ == "__main__":
 	# plot data with noise filtering 
 	apply_low_noise_filter_flag = True
 
-	# # GSLV-MK3-D2 Data
-	# vehicle_mission_name = 'GSLV-MK3-D2-GSAT-29'
-	# filename_evt = './data/gslv-mk3-d2-gsat29-flight-events.dat'
-	# filename_alt = './data/gslv-mk3-d2-gsat29-48-alt.dat'
-	# filename_vel = './data/gslv-mk3-d2-gsat29-48-vel.dat'
-	# # plot gslv-mk3 profiles	
-	# plot_profiles( vehicle_mission_name, filename_evt, filename_alt, filename_vel, filename_atm, apply_low_noise_filter_flag )
+	# GSLV-MK3-D2 Data
+	vehicle_mission_name = 'GSLV-MK3-D2-GSAT-29'
+	filename_evt = './data/gslv-mk3-d2-gsat29-flight-events.dat'
+	filename_alt = './data/gslv-mk3-d2-gsat29-48-alt.dat'
+	filename_vel = './data/gslv-mk3-d2-gsat29-48-vel.dat'
+	# plot gslv-mk3 profiles	
+	plot_profiles( vehicle_mission_name, filename_evt, filename_alt, filename_vel, filename_atm, apply_low_noise_filter_flag )
 
+<<<<<<< HEAD
 	# # GSLV-MK2-F08 Data
 	# vehicle_mission_name = 'GSLV-MK2-F08-GSAT-6A'
 	# filename_evt = './data/gslv-f08-gsat6a-flight-events.dat'
@@ -500,4 +501,20 @@ if __name__ == "__main__":
 	filename_alt = './data/gslv-mk3-m4-c3-alt.dat'
 	filename_vel = './data/gslv-mk3-m4-c3-vel.dat'	
 	# plot gslv-mk2 profiles	
+=======
+	# GSLV-MK2-F08 Data
+	vehicle_mission_name = 'GSLV-MK2-F08-GSAT-6A'
+	filename_evt = './data/gslv-f08-gsat6a-flight-events.dat'
+	filename_alt = './data/gslv-f08-gsat6a-42-alt.dat'
+	filename_vel = './data/gslv-f08-gsat6a-42-vel.dat'	
+	# plot gslv-mk2 profiles	
+	plot_profiles( vehicle_mission_name, filename_evt, filename_alt, filename_vel, filename_atm, apply_low_noise_filter_flag )
+
+	# PSLV-C26 Data
+	vehicle_mission_name = 'PSLV-C26-IRNSS-1C'
+	filename_evt = './data/pslv-c26-irnss-1c-flight-events.dat'
+	filename_alt = './data/pslv-c26-irnss-1c-11-alt.dat'
+	filename_vel = './data/pslv-c26-irnss-1c-11-vel.dat'
+	# plot pslv profiles
+>>>>>>> f9c7007050b3c6188b5e16a9c3e782dea9727284
 	plot_profiles( vehicle_mission_name, filename_evt, filename_alt, filename_vel, filename_atm, apply_low_noise_filter_flag )
