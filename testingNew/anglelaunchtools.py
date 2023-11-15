@@ -1,11 +1,12 @@
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
+
 THETA = 3 # in degrees
 MASS = 6e3 # in kg
 DT = 0.001 # in seconds
 
-def thrust(alpha,theta=np.deg2rad(THETA),T=(1e6 + MASS*1*9.8)/np.cos(np.deg2rad(THETA))):
+def thrust(alpha,theta=np.deg2rad(THETA),T=(1e6 + MASS*1*9.8)/np.cos(np.deg2rad(THETA)),mass=MASS):
     """ 
     calculates thrust in inertial (parent) direction
     inputs:
@@ -16,9 +17,24 @@ def thrust(alpha,theta=np.deg2rad(THETA),T=(1e6 + MASS*1*9.8)/np.cos(np.deg2rad(
     output:
     - 2D vector
 
-    Notes: value of T*cos(theta) = Drag + ma
+    Notes: 
+    Mg force is added in this just cz it was acting on CG itself, and I didnt't wanna make many changes
     """
-    return np.array([T*np.cos(-alpha+theta),-T*np.sin(-alpha+theta)])
+
+    # have added this because we were not able to change the direction of all motor, it was feasible only for 2
+    # so have modified the net thrust based on theta 
+
+
+    T_hb = (2*267*np.cos(theta) + 2*267 + 2*20)*1e3
+    T_vb = (2*267*np.sin(theta))
+    T = np.sqrt(T_hb**2+T_vb**2)
+
+
+    # the return statement of this function includes mg term also  
+    # hence it outputs thrust + mg in vector for in parent's frame  
+    return np.array([T*np.cos(-alpha+theta)-mass*9.8/np.sqrt(2),-T*np.sin(-alpha+theta)-mass*9.8/np.sqrt(2)])
+
+
 
 def drag(alpha,beta,D = 1e6):
     """
@@ -41,7 +57,7 @@ def R_i2b(alpha,vec):
     rotMat = np.array( [ [ np.cos(alpha), np.sin(alpha) ], [ -np.sin(alpha), np.cos(alpha)] ] )   
     return np.matmul(rotMat,vec)
 
-def moment(alpha, drag, l = 0.1):
+def moment(alpha, drag, l = 0.5):
     """ 
     calculates positive value standard right hand rule i.e. outside plane moment is positive
     l is distance between cg and cp
@@ -50,11 +66,11 @@ def moment(alpha, drag, l = 0.1):
     dragRot = -R_i2b(alpha,drag)
     return dragRot[1]*l
 
-def moi(m=6000,r=2.5,l=5):
+def moi(m=6000,r=2.5,l=10):
     """
     moment of intertia, will be used in future for variable mass and exact CG location
     """
-    return m*(0.25*r**2 + (1/12)*l**2)
+    return m*(0.25*r**2 + (1/12)*l**2)+m*(1.5)**2
 
 
 def betaFromV(alpha, v):
@@ -94,3 +110,16 @@ def updateAlpha(alphao, alphaDot, dt = DT):
 
 def getAngle(vec):
     return np.arctan(vec[1]/vec[0])
+
+def legendArr(thetaArr,cg_cp_Arr):
+    a = []
+    for i in thetaArr:
+        for j in cg_cp_Arr:
+            a.append("theta = " + str(i) + " CG-CP = " + str(j))
+    return a
+def s(V):
+    s_x = V[:,0]* DT
+    s_y = V[:,1]* DT
+    s_x = s_x.cumsum()
+    s_y = s_y.cumsum()
+    return s_x,s_y
